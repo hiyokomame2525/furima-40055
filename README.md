@@ -1,56 +1,24 @@
-# テーブル設計
+# README
 
-## usersテーブル
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Colimn                | Type   | Options     |
-|-----------------------|--------|-------------|
-| nickname              | string | null: false |
-| email                 | string | null: false |
-| password              | string | null: false |
-| password_confirmation | string | null: false |
-| first_name            | string | null: false |
-| last_name             | string | null: false |
-| first_pronunciation   | string | null: false |
-| last_pronunciation    | string | null: false |
+Things you may want to cover:
 
-- has_many :items
-- has_many :orders
+* Ruby version
 
-## itemsテーブル
+* System dependencies
 
-| Colimn          | Type       | Options                      |
-|-----------------|------------|------------------------------|
-| image           | string     | null: false                  |
-| title           | string     | null: false                  |
-| content         | string     | null: false                  |
-| category        | string     | null: false                  |
-| preservation    | string     | null: false                  |
-| delivery charge | string     | null: false                  |
-| region          | string     | null: false                  |
-| delivery time   | integer    | null: false                  |
-| amount          | integer    | null: false                  |
-| user_id         | references | null: false,foreign_key: true|
+* Configuration
 
-- belongs_to :user
-- has_one :order
+* Database creation
 
+* Database initialization
 
-## ordersテーブル
+* How to run the test suite
 
-| Colimn           | Type       | Options                       |
-|------------------|------------|-------------------------------|
-| card-number      | integer    | null: false                   |
-| expiration       | integer    | null: false                   |
-| security         | integer    | null: false                   |
-| postal code      | string     | null: false                   |
-| prefecture       | string     | null: false                   |
-| municipalities   | string     | null: false                   |
-| street_address   | string     | null: false                   |
-| building_name    | string     | null: false                   |
-| telephone_number | integer    | null: false                   |
-| user_id          | references | null: false,foreign_key: true |
-| item_id          | references | null: false,foreign_key: true |
+* Services (job queues, cache servers, search engines, etc.)
 
+* Deployment instructions
 
-- belongs_to :user
-- belongs_to :item
+* ...
