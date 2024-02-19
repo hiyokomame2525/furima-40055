@@ -11,9 +11,7 @@
 |last_name             | string   | null: false               |
 |first_pronunciation   | string   | null: false               |
 |last_pronunciation    | string   | null: false               |
-|birth_year_id         | integer  | null: false               |
-|birth_month_id        | integer  | null: false               |
-|birthday_id           | integer  | null: false               |
+|birthday              | date     | null: false               |
 
 
 ### Association
@@ -47,7 +45,7 @@
 |--------------------|------------|-------------------------------|
 | postal_code        | string     | null: false                   |
 | prefecture_id      | integer    | null: false                   |
-| municipalities     | string     | null: false                   |
+| municipality       | string     | null: false                   |
 | street_address     | string     | null: false                   |
 | building_name      | string     |                               |
 | telephone_number   | string     | null: false                   |
