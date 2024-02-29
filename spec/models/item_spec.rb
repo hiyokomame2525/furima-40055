@@ -28,27 +28,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Content can't be blank")
       end
       it 'category_idが空では保存できない' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'preservation_idが空では保存できない' do
-        @item.preservation_id = ''
+        @item.preservation_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Preservation can't be blank")
       end
       it 'delivery_charge_idが空では保存できない' do
-        @item.delivery_charge_id = ''
+        @item.delivery_charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
       end
       it 'prefecture_idが空では保存できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'delivery_time_idが空では保存できない' do
-        @item.delivery_time_id = ''
+        @item.delivery_time_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery time can't be blank")
       end
@@ -71,6 +71,11 @@ RSpec.describe Item, type: :model do
         @item.amount = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Amount must be less than or equal to 9999999')
+      end
+      it 'userが紐づいていないと保存できない' do
+        @item.user = nil 
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
