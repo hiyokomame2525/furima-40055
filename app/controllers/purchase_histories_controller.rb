@@ -1,6 +1,6 @@
 class PurchaseHistoriesController < ApplicationController
   before_action :authenticate_user!, only[:index, :create]
-  before_action :itemset, omly[:index, :create]
+  before_action :itemset, only[:index, :create]
 
   def index
     unless current_user.id == @item.user.id
