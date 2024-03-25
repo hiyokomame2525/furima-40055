@@ -1,5 +1,5 @@
 class PurchaseHistoriesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :create]
+  before_action :authenticate_user!, only[:index, :create]
   before_action :itemset, omly[:index, :create]
 
   def index

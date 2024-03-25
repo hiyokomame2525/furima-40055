@@ -1,7 +1,7 @@
 class PurchaseHistory < ApplicationRecord
-  belongs_to :user,dependent: :destroy
-  belongs_to :item,dependent: :destroy
-  has_one :address,dependent: :destroy
+  belongs_to :user
+  belongs_to :item
+  has_one :address
   
   attr_accessor :token
 end
