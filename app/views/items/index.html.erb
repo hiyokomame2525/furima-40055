@@ -135,13 +135,13 @@
           <%= link_to item_path(item.id) do %>
               <div class='item-img-content'>
                 <%= image_tag item.image.variant(resize: '229.41x229.41'), class: "item-img" %>
-                  
-                  <% if item.purchase_history %>
+                  <%# 商品が売れていればsold outを表示しましょう %>
+                  <% if item.purchase_histories.present? %>
                     <div class='sold-out'>
                       <span>Sold Out!!</span>
                     </div>
                   <% end %>
-                  
+                  <%# //商品が売れていればsold outを表示しましょう %>
               </div>
         
               <div class='item-info'>

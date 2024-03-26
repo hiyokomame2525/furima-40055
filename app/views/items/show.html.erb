@@ -9,7 +9,7 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
         
-          <% if @item.purchase_history %>
+          <% if @item.purchase_histories.present? %>
             <div class="sold-out">
               <span>Sold Out!!</span>
             </div>
@@ -26,15 +26,19 @@
     </div>
 
     
-    <% if user_signed_in? && (current_user.id == @item.user.id) && !@item.purchase_history %>
+    <% if user_signed_in? && current_user.id == @item.user.id %>
         <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
           <p class="or-text">or</p>
         <%= link_to "削除", item_path(@item.id), data: {turbo_method: :delete}, class:"item-destroy" %>
 
-      <% elsif user_signed_in? && !@item.purchase_history %>
-        <%= link_to "購入画面に進む",item_purchase_histories_path(@item) , data: { turbo: false }, class:"item-red-btn"%>
-      <% else %>
-    <% end %>
+      <% elsif user_signed_in? %>
+      
+      <% unless @item.purchase_histories.present? %>
+        <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+      
+        <% else %>
+      <% end %>
+      <% end %>
 
        <div class="item-explain-box">
       <span><%= @item.content %></span>
