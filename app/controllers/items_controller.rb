@@ -23,13 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user == @item.user
-      redirect_to root_path
-    end
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
-    if @item.purchase_history
+    unless current_user == @item.user || !@item.purchase_history
       redirect_to root_path
     end
   end
